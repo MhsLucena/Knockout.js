@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Introdução Knockout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <script src="knockout.js"></script>
+</head>
+
+
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0 auto;
+        padding: 0 auto;
+        font-family: 'Nunito', sans-serif;
+        max-width: 960px;
+    }
+    
+    .intro{
+        margin: 10px auto;
+    }
+
+    .intro p{
+        margin: 20px auto;
+    }
+
+    .intro li{
+        margin: 20px auto;
+    }
+
+
+    .proxima-topico{
+        margin: 20px auto;
+        font-size: 1em;
+        float: right;  
+        border: 1px solid black;
+        outline: 0;
+        cursor: pointer;
+        background: transparent;     
+        border-radius: 10px 10px 10px; 
+    }
+
+
+   
+
+
+
+</style>
+
+<body>
+    <section class="intro"> 
+    <h1>Knockout e como ele funciona</h1>
+    <p>O Knockout tem uma estrutura MVVM (Model-View-View Model) é um padrão <br> para a construção de interfaces com o usuário.</p>
+     <ul>
+         <li>Modelo: São os dados armazenados dentro do programa, são indenpendetes da interface do usuário</li>
+         <li>Modelo de visualização: É como o os códigos interagem com o usuário. Se acontecer uma implementação de login o modelo de visualização seria um login</li>
+         <li>Visualização: Como o nome já diz, é onde o usuário irá ter interação com o aplicativo</li>
+     </ul>
+    </section> <hr>
+
+    <section class="exemplo">
+
+        <h1> Entendendo Knockout</h1>
+        <p>Para criar um modelo de visualização basta declarar um objeto. Veja o exemplo: </p>
+        <img src="../Knockout_Document/img/img_intro1.PNG" alt="">
+        <p>Para criação da visualização basta: </p>
+        <img src="../Knockout_Document/img/img_intro2.PNG" alt="">
+        <P>A visualização não será realiazada porque não foi ativado o Knockout: <br> No caso não tem saida de dados, veja: </p>
+        Meu nome é: <span  style="color: red"> Sem sáida de dados</span> <hr> 
+        <h1>Ativando o knockout</h1>
+        <p>Para a tivação do Knockout é necessário adicionar a seguinte no bloco script: </p>
+        <img src="../Knockout_Document/img/img_intro3.PNG" alt="">
+        <P>Com a ativação do Knockout no bloco script a saída para visualização ficará: </P>
+        Meu nome é: <span data-bind="text: nome" style="color: red"></span>
+    </section>
+
+    
+        <button onclick="proximo()" class="proxima-topico"> Próxima Tópico</button>
+ 
+
+
+    
+
+    <script>
+    
+        var modeloVisualização = {
+            nome: 'Matheus',
+            idade: 21
+        };
+
+        ko.applyBindings(modeloVisualização);
+
+        function proximo(){
+            window.location.href = "../Knockout_Document/matrizes_observaveis.html"
+        }
+
+    </script>
+</body>
+</html>
